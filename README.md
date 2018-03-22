@@ -21,12 +21,12 @@
 | ------ | ----------- |
 | [modular-boilerplate] | The project base structure |
 
-### Scaffolding tools
+### Scaffolding Tools
 | Module | Description |
 | ------ | ----------- |
 | [slush-modular-boilerplate] | Scaffold the boilerplate with [Slush] |
 
-### Build systems
+### Build Systems
 | Module | Description |
 | ------ | ----------- |
 | [modular-gulp] | Build tasks modules with [gulp] |
