@@ -6,25 +6,23 @@
 <h1 align="center">Modular Boilerplate</h1>
 <p align="center">WIP</p>
 
-## Install
+## Installation
 ```sh
+npm install mbp --global
 
 ```
 
 ## Usage
 ```sh
+# init your project
+mbp init
+
+# run the build system you chose
+gulp
 
 ```
 
 ## Modules
-| Module | Description |
-| ------ | ----------- |
-| [modular-boilerplate] | The project base structure |
-
-### Scaffolding Tools
-| Module | Description |
-| ------ | ----------- |
-| [slush-modular-boilerplate] | Scaffold the boilerplate with [Slush] |
 
 ### Build Systems
 | Module | Description |
@@ -47,7 +45,6 @@
 | [modular-hbs] | HTML modules with [Handlebars] |
 
 [modular-boilerplate]: https://github.com/modularbp/modular-boilerplate
-[slush-modular-boilerplate]: https://github.com/modularbp/slush-modular-boilerplate
 [modular-gulp]: https://github.com/modularbp/modular-gulp
 [modular-css]: https://github.com/modularbp/modular-css
 [modular-js]: https://github.com/modularbp/modular-js
