@@ -8,7 +8,7 @@
 
 ## Installation
 ```sh
-npm install mbp --global
+npm install mbp -g
 
 ```
 
