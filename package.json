@@ -1,6 +1,6 @@
 {
   "name": "mbp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/modularbp/modular-boilerplate.git"
@@ -10,11 +10,5 @@
   "bugs": {
     "url": "https://github.com/modularbp/modular-boilerplate/issues"
   },
-  "homepage": "https://github.com/modularbp/modular-boilerplate#readme",
-  "dependencies": {
-    "@babel/core": "*",
-    "@babel/preset-env": "*",
-    "@babel/register": "*",
-    "gulp": "*"
-  }
+  "homepage": "https://github.com/modularbp/modular-boilerplate#readme"
 }
