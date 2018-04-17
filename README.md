@@ -24,7 +24,7 @@ gulp
 
 ## Modules
 
-### Build Systems
+### Build
 | Module | Description |
 | ------ | ----------- |
 | [modular-gulp] | Build tasks modules with [gulp] |
@@ -33,6 +33,7 @@ gulp
 | Module | Description |
 | ------ | ----------- |
 | [modular-css] | CSS modules with [cssnext] and [PostCSS] |
+| [modular-sass] | SCSS modules with [Sass] |
 
 ### Scripts
 | Module | Description |
@@ -43,16 +44,20 @@ gulp
 | Module | Description |
 | ------ | ----------- |
 | [modular-hbs] | HTML modules with [Handlebars] |
+| [modular-liquid] | HTML modules with [Liquid] |
 
 [modular-boilerplate]: https://github.com/modularbp/modular-boilerplate
 [modular-gulp]: https://github.com/modularbp/modular-gulp
 [modular-css]: https://github.com/modularbp/modular-css
+[modular-sass]: https://github.com/modularbp/modular-sass
 [modular-js]: https://github.com/modularbp/modular-js
 [modular-hbs]: https://github.com/modularbp/modular-hbs
+[modular-liquid]: https://github.com/modularbp/modular-liquid
 
-[Slush]: https://github.com/slushjs/slush
 [gulp]: https://github.com/gulpjs/gulp
 [cssnext]: https://github.com/MoOx/postcss-cssnext
+[Sass]: https://github.com/sass/libsass
 [PostCSS]: https://github.com/postcss/postcss
 [Babel]: https://github.com/babel/babel
 [Handlebars]: https://github.com/wycats/handlebars.js
+[Liquid]: https://github.com/Shopify/liquid
