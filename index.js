@@ -112,7 +112,7 @@ function init() {
         const cmd = spawn('npm', command, { stdio: 'inherit' });
 
         cmd.on('close', (code) => {
-            copy(['./node_modules/mbp/src/**/*', './node_modules/mbp/src/**/.*', `./node_modules/${prefix}${build}/src/*`], './', function(err) {
+            copy(['./node_modules/mbp/src/**/*', './node_modules/mbp/src/**/.*', `./node_modules/${prefix}${build}/src/*`], './', { overwrite: false }, function(err) {
                 if (err) {
                     console.log(chalk.red(err));
                 } else {
@@ -128,7 +128,7 @@ function init() {
             makeDir(paths.views.src);
             makeDir(paths.views.partials);
 
-            copy(`./node_modules/${prefix}${build}-*/src/*`, paths.build, { flatten: true }, function(err) {
+            copy(`./node_modules/${prefix}${build}-*/src/*`, paths.build, { flatten: true, overwrite: false }, function(err) {
                 if (err) {
                     console.log(chalk.red(err));
                 } else {
