@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 const chalk = require('chalk');
 const commander = require('commander');
 const inquirer = require('inquirer');
@@ -7,10 +7,11 @@ const makeDir = require('make-dir');
 const copy = require('copy');
 const del = require('del');
 const path = require('path');
+const fs = require('fs');
 
 commander
-    .command('init')
-    .action(() => init());
+    .command('init [repo] [dest]')
+    .action((repo, dest) => init(repo, dest));
 
 commander.parse(process.argv);
 
@@ -18,8 +19,8 @@ const dependencies = {
     gulp: ['error', 'notify', 'paths', 'serve', 'svg', 'watch']
 };
 
-function init() {
-    console.log(chalk.yellow(`👋 Hey, let's init your project.`));
+function init(repo, dest = '.') {
+    log(`👋 Hey, let's init your project.`);
 
     inquirer.prompt([
     {
@@ -86,41 +87,101 @@ function init() {
                 value: 'liquid'
             }
         ]
+
     }
     ]).then(answers => {
-        console.log(chalk.yellow(`👌 All good, installing everything for you.`));
+        log(`👌 All good, installing everything for you.`);
 
-        const prefix = '@modularbp/'
-        const name = answers.name;
-        const build = answers.build;
-
-        delete answers.name;
-        delete answers.build;
-
-        let command = ['install', '--save-dev', 'mbp'];
-        command.push(prefix + build);
-
-        Object.keys(answers).map(function(key) {
-            let value = answers[key];
-            command.push(prefix + build + '-' + value);
-        });
-
-        if (dependencies[build]) {
-            command.push(...dependencies[build].map(value => prefix + build + '-' + value));
+        if (repo) {
+            cloneRepo(repo, dest);
         }
 
-        const cmd = spawn('npm', command, { stdio: 'inherit' });
+        let delPackage = false;
+        if (!fileExists('./package.json')) {
+            createFile('./package.json', '{}');
+            delPackage = true;
+        }
 
-        cmd.on('close', (code) => {
-            copy(['./node_modules/mbp/src/**/*', './node_modules/mbp/src/**/.*', `./node_modules/${prefix}${build}/src/*`], './', { overwrite: false }, function(err) {
+        installModules(answers, delPackage);
+    });
+}
+
+function log(message) {
+    console.log(chalk.yellow(message));
+}
+
+function error(message) {
+    console.log(chalk.red(message));
+}
+
+function cloneRepo(repo, dest) {
+    spawnSync('git', ['clone', 'https://github.com/'+ repo, dest], { stdio: 'inherit' });
+    del('./.git');
+}
+
+function fileExists(path) {
+    try {
+        fs.statSync(path);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+function createFile(path, data) {
+    fs.writeFileSync(path, data);
+}
+
+function installModules(answers, delPackage) {
+    installPackages('mbp');
+
+    if(delPackage) {
+        del('./package.json');
+    }
+
+    const prefix = '@modularbp/'
+    const name = answers.name;
+    const build = answers.build;
+
+    delete answers.name;
+    delete answers.build;
+
+    let packages = [];
+
+    if (delPackage) {
+        packages.push('mbp');
+    }
+
+    packages.push(prefix + build);
+
+    Object.keys(answers).map(function(key) {
+        let value = answers[key];
+        packages.push(prefix + build + '-' + value);
+    });
+
+    if (dependencies[build]) {
+        packages.push(...dependencies[build].map(value => prefix + build + '-' + value));
+    }
+
+    copy(['./node_modules/mbp/src/**/*', './node_modules/mbp/src/**/.*'], './', { overwrite: false }, function(err) {
+        if (err) {
+            error(err);
+        } else {
+            const paths = require(process.cwd() + '/mconfig.json');
+
+            installPackages(packages);
+
+            copy(`./node_modules/${prefix}${build}/src/*`, './', { overwrite: false }, function(err) {
                 if (err) {
-                    console.log(chalk.red(err));
-                } else {
-                    del(['./**/.gitkeep', '!./node_modules/**']);
+                    error(err);
                 }
             });
 
-            const paths = require(process.cwd() + '/mconfig.json');
+            copy(`./node_modules/${prefix}${build}-*/src/*`, paths.build, { flatten: true, overwrite: false }, function(err) {
+                if (err) {
+                    error(err);
+                }
+            });
 
             makeDir(paths.styles.src);
             makeDir(paths.scripts.src);
@@ -128,14 +189,13 @@ function init() {
             makeDir(paths.views.src);
             makeDir(paths.views.partials);
 
-            copy(`./node_modules/${prefix}${build}-*/src/*`, paths.build, { flatten: true, overwrite: false }, function(err) {
-                if (err) {
-                    console.log(chalk.red(err));
-                } else {
-                    console.log(chalk.yellow(`👊 Ready to go, you can now run ${build}`));
-                }
-            });
-
-        });
+            log(`👊 Ready to go, you can now run ${build}`);
+        }
     });
+}
+
+function installPackages(packages) {
+    let command = ['install'].concat(packages);
+    command.push('--save-dev');
+    spawnSync('npm', command, { stdio: 'inherit' });
 }
