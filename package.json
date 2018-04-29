@@ -1,6 +1,6 @@
 {
   "name": "mbp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -12,14 +12,13 @@
     "url": "https://github.com/modularbp/modular-boilerplate/issues"
   },
   "homepage": "https://github.com/modularbp/modular-boilerplate#readme",
-  "preferGlobal": true,
   "bin": "./index.js",
+  "engines": {
+    "node": ">=8.5"
+  },
   "dependencies": {
-    "chalk": "^2.3.2",
     "commander": "^2.15.1",
-    "copy": "^0.3.1",
-    "del": "^3.0.0",
-    "inquirer": "^5.2.0",
-    "make-dir": "^1.2.0"
+    "fast-glob": "^2.2.1",
+    "inquirer": "^5.2.0"
   }
 }
