@@ -10,6 +10,7 @@ const createFile = require('./lib/createFile');
 const installPackages = require('./lib/installPackages');
 const copy = require('./lib/copy');
 const createDir = require('./lib/createDir');
+const prefix = require('./lib/prefix');
 
 const dependencies = {
     gulp: ['error', 'notify', 'paths', 'serve', 'svg', 'watch']
@@ -36,11 +37,11 @@ function init(answers, repo, dest) {
         cloneRepo(repo, dest);
     }
 
-    createFile('./package.json', '{}');
+    createFile(`${dest}/package.json`, '{}');
 
-    installPackages('mbp');
+    installPackages('mbp', dest);
 
-    const prefix = '@modularbp/'
+    const org = '@modularbp/'
     const name = answers.name;
     const build = answers.build;
 
@@ -49,32 +50,37 @@ function init(answers, repo, dest) {
 
     let packages = [];
 
-    packages.push(prefix + build);
+    packages.push(org + build);
 
     Object.keys(answers).map(function(key) {
         let value = answers[key];
-        packages.push(prefix + build + '-' + value);
+        packages.push(org + build + '-' + value);
     });
 
     if (dependencies[build]) {
-        packages.push(...dependencies[build].map(value => prefix + build + '-' + value));
+        packages.push(...dependencies[build].map(value => org + build + '-' + value));
     }
 
-    copy(['./node_modules/mbp/src/**/*', './node_modules/mbp/src/**/.*'], './');
+    copy([`${dest}/node_modules/mbp/src/**/*`, `${dest}/node_modules/mbp/src/**/.*`], `${dest}/`);
 
-    const paths = require(process.cwd() + '/mconfig.json');
+    let destFolder = '';
+    if (dest != '.') {
+        destFolder = '/' + dest;
+    }
 
-    installPackages(packages);
+    const paths = require(process.cwd() + destFolder + '/mconfig.json');
 
-    copy(`./node_modules/${prefix}${build}/src/*`, './');
+    installPackages(packages, dest);
 
-    copy(`./node_modules/${prefix}${build}-*/src/*`, paths.build);
+    copy(`${dest}/node_modules/${org}${build}/src/*`, `${dest}/`);
 
-    createDir(paths.styles.src);
-    createDir(paths.scripts.src);
-    createDir(paths.svgs.src);
-    createDir(paths.views.src);
-    createDir(paths.views.partials);
+    copy(`${dest}/node_modules/${org}${build}-*/src/*`, prefix(paths.build, dest));
+
+    createDir(prefix(paths.styles.src, dest));
+    createDir(prefix(paths.scripts.src, dest));
+    createDir(prefix(paths.svgs.src, dest));
+    createDir(prefix(paths.views.src, dest));
+    createDir(prefix(paths.views.partials, dest));
 
     log(`👊 Ready to go, you can now run ${build}`);
 }
