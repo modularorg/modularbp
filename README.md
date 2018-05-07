@@ -9,7 +9,6 @@
 ## Installation
 ```sh
 npm install mbp -g
-
 ```
 
 ## Usage
@@ -19,7 +18,6 @@ mbp init
 
 # run the build system you chose
 gulp
-
 ```
 
 ## Modules
@@ -45,6 +43,52 @@ gulp
 | ------ | ----------- |
 | [modular-hbs] | HTML modules with [Handlebars] |
 | [modular-liquid] | HTML modules with [Liquid] |
+
+## Customization
+
+### Base
+
+If you want to further customize the boilerplate to your own structure and files, you can easily clone a GitHub repository with the init command, by specifying the repository name and optionally the destination directory. It will clone first, then install the mbp modules without overwriting your files.
+
+```sh
+mbp init <user/repo> <dir>
+```
+
+### Config
+
+You can create a `mconfig.json` file to change the default folders structure and set your modules choice to skip the cli questions.
+
+```json
+{
+  "src": "./src/",
+  "dest": "./dist/",
+  "build": "./build/",
+  "styles": {
+    "src": "./src/styles/",
+    "dest": "./dist/styles/",
+    "main": "main"
+  },
+  "scripts": {
+    "src": "./src/scripts/",
+    "dest": "./dist/scripts/",
+    "main": "main"
+  },
+  "svgs": {
+    "src": "./src/images/sprite/",
+    "dest": "./dist/images/"
+  },
+  "views": {
+    "src": "./src/",
+    "partials": "./src/partials/"
+  },
+  "modules": {
+    "build": "gulp",
+    "style": "css",
+    "script": "js",
+    "view": "hbs"
+  }
+}
+```
 
 [modular-boilerplate]: https://github.com/modularbp/modular-boilerplate
 [modular-gulp]: https://github.com/modularbp/modular-gulp
