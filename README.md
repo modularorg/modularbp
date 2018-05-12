@@ -3,8 +3,8 @@
         <img src="https://user-images.githubusercontent.com/4596862/37635200-aa3271b2-2bd0-11e8-8a65-9cafa0addd67.png" height="140">
     </a>
 </p>
-<h1 align="center">Modular Boilerplate</h1>
-<p align="center">WIP</p>
+<h1 align="center">modularBP</h1>
+<p align="center">A dead simple modular boilerplate.</p>
 
 ## Installation
 ```sh
@@ -90,7 +90,6 @@ You can create a `mconfig.json` file to change the default folders structure and
 }
 ```
 
-[modular-boilerplate]: https://github.com/modularbp/modular-boilerplate
 [modular-gulp]: https://github.com/modularbp/modular-gulp
 [modular-css]: https://github.com/modularbp/modular-css
 [modular-sass]: https://github.com/modularbp/modular-sass

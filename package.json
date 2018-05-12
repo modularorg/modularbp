@@ -1,18 +1,11 @@
 {
   "name": "mbp",
-  "version": "1.0.5",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/modularbp/modular-boilerplate.git"
-  },
-  "author": "Antoine Boulanger <hello@antoineboulanger.com>",
+  "version": "1.0.6",
+  "description": "A dead simple modular boilerplate.",
+  "repository": "modularorg/modularbp",
+  "author": "Antoine Boulanger <hello@antoineboulanger.com> (https://antoineboulanger.com)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/modularbp/modular-boilerplate/issues"
-  },
-  "homepage": "https://github.com/modularbp/modular-boilerplate#readme",
-  "bin": "./index.js",
+  "bin": "index.js",
   "engines": {
     "node": ">=8.5"
   },
