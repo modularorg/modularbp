@@ -14,7 +14,7 @@ const prefix = require('./lib/prefix');
 let questions = require('./lib/questions');
 
 const dependencies = {
-    gulp: ['error', 'notify', 'paths', 'serve', 'svg', 'watch']
+    gulp: ['error', 'notify', 'serve', 'svg', 'watch']
 };
 
 commander
@@ -83,7 +83,9 @@ function init(config, answers, repo, dest) {
 
     Object.keys(answers).map(function(key) {
         let value = answers[key];
-        packages.push(org + build + '-' + value);
+        if (value) {
+            packages.push(org + build + '-' + value);
+        }
     });
 
     if (dependencies[build]) {
