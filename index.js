@@ -14,7 +14,7 @@ const prefix = require('./lib/prefix');
 let questions = require('./lib/questions');
 
 const dependencies = {
-    gulp: ['error', 'notify', 'serve', 'svg', 'watch']
+    gulp: ['build', 'error', 'notify', 'serve', 'svg', 'watch']
 };
 
 commander

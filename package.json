@@ -1,6 +1,6 @@
 {
   "name": "mbp",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A dead simple modular boilerplate.",
   "repository": "modularorg/modularbp",
   "author": "Antoine Boulanger <hello@antoineboulanger.com> (https://antoineboulanger.com)",
@@ -12,6 +12,6 @@
   "dependencies": {
     "commander": "^2.15.1",
     "fast-glob": "^2.2.1",
-    "inquirer": "^5.2.0"
+    "inquirer": "^6.2.0"
   }
 }
