@@ -68,7 +68,11 @@ function initQuestions(repo, dest = '.') {
 function init(config, answers, repo, dest) {
     log(`👌 All good, installing everything for you.`);
 
-    createFile(`${dest}/package.json`, '{}');
+    if (exists(`${dest}/package.json`)) {
+        installPackages(null, dest);
+    } else {
+        createFile(`${dest}/package.json`, '{}');
+    }
 
     installPackages('mbp', dest);
 
