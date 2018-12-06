@@ -25,24 +25,24 @@ gulp
 ### Build
 | Module | Description |
 | ------ | ----------- |
-| [modular-gulp] | Build tasks modules with [gulp] |
+| [modularbp-gulp] | Build tasks modules with [gulp] |
 
 ### Styles
 | Module | Description |
 | ------ | ----------- |
-| [modular-css] | CSS modules with [cssnext] and [PostCSS] |
-| [modular-sass] | SCSS modules with [Sass] |
+| [modularbp-css] | CSS modules with [cssnext] and [PostCSS] |
+| [modularbp-sass] | SCSS modules with [Sass] |
 
 ### Scripts
 | Module | Description |
 | ------ | ----------- |
-| [modular-js] | JavaScript modules in ES6 with [Babel] |
+| [modularbp-js] | JavaScript modules in ES6 with [Babel] |
 
 ### Views
 | Module | Description |
 | ------ | ----------- |
-| [modular-hbs] | HTML modules with [Handlebars] |
-| [modular-liquid] | HTML modules with [Liquid] |
+| [modularbp-hbs] | HTML modules with [Handlebars] |
+| [modularbp-liquid] | HTML modules with [Liquid] |
 
 ## Customization
 
@@ -90,12 +90,12 @@ You can create a `mconfig.json` file to change the default folders structure and
 }
 ```
 
-[modular-gulp]: https://github.com/modularorg/modularbp-gulp
-[modular-css]: https://github.com/modularorg/modularbp-css
-[modular-sass]: https://github.com/modularorg/modularbp-sass
-[modular-js]: https://github.com/modularorg/modularbp-js
-[modular-hbs]: https://github.com/modularorg/modularbp-hbs
-[modular-liquid]: https://github.com/modularorg/modularbp-liquid
+[modularbp-gulp]: https://github.com/modularorg/modularbp-gulp
+[modularbp-css]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-css
+[modularbp-sass]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-sass
+[modularbp-js]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-js
+[modularbp-hbs]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-hbs
+[modularbp-liquid]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-liquid
 
 [gulp]: https://github.com/gulpjs/gulp
 [cssnext]: https://github.com/MoOx/postcss-cssnext
