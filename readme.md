@@ -90,12 +90,12 @@ You can create a `mconfig.json` file to change the default folders structure and
 }
 ```
 
-[modular-gulp]: https://github.com/modularbp/modular-gulp
-[modular-css]: https://github.com/modularbp/modular-css
-[modular-sass]: https://github.com/modularbp/modular-sass
-[modular-js]: https://github.com/modularbp/modular-js
-[modular-hbs]: https://github.com/modularbp/modular-hbs
-[modular-liquid]: https://github.com/modularbp/modular-liquid
+[modular-gulp]: https://github.com/modularorg/modularbp-gulp
+[modular-css]: https://github.com/modularorg/modularbp-css
+[modular-sass]: https://github.com/modularorg/modularbp-sass
+[modular-js]: https://github.com/modularorg/modularbp-js
+[modular-hbs]: https://github.com/modularorg/modularbp-hbs
+[modular-liquid]: https://github.com/modularorg/modularbp-liquid
 
 [gulp]: https://github.com/gulpjs/gulp
 [cssnext]: https://github.com/MoOx/postcss-cssnext
