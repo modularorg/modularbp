@@ -36,7 +36,8 @@ gulp
 ### Scripts
 | Module | Description |
 | ------ | ----------- |
-| [modularbp-js] | JavaScript modules in ES6 with [Babel] |
+| [modularbp-mjs] | JavaScript modules with [modularJS] and [Babel] |
+| [modularbp-js] | JavaScript modules with [Babel] |
 
 ### Views
 | Module | Description |
@@ -84,7 +85,7 @@ You can create a `mconfig.json` file to change the default folders structure and
   "modules": {
     "build": "gulp",
     "style": "css",
-    "script": "js",
+    "script": "mjs",
     "view": "hbs"
   }
 }
@@ -93,6 +94,7 @@ You can create a `mconfig.json` file to change the default folders structure and
 [modularbp-gulp]: https://github.com/modularorg/modularbp-gulp
 [modularbp-css]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-css
 [modularbp-sass]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-sass
+[modularbp-mjs]: https://github.com/modularorg/modularbp-mjs
 [modularbp-js]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-js
 [modularbp-hbs]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-hbs
 [modularbp-liquid]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-liquid
@@ -101,6 +103,7 @@ You can create a `mconfig.json` file to change the default folders structure and
 [cssnext]: https://github.com/MoOx/postcss-cssnext
 [Sass]: https://github.com/sass/libsass
 [PostCSS]: https://github.com/postcss/postcss
+[modularJS]: https://github.com/modularorg/modularjs
 [Babel]: https://github.com/babel/babel
 [Handlebars]: https://github.com/wycats/handlebars.js
 [Liquid]: https://github.com/Shopify/liquid

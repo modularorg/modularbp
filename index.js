@@ -87,6 +87,12 @@ function init(config, answers, repo, dest) {
 
     Object.keys(answers).map(function(key) {
         let value = answers[key];
+
+        if (value == 'mjs') {
+            packages.push(org + value);
+            value = 'js';
+        }
+
         if (value) {
             packages.push(org + build + '-' + value);
         }
@@ -110,8 +116,9 @@ function init(config, answers, repo, dest) {
     installPackages(packages, dest);
 
     copy(`${dest}/node_modules/${org}${build}/src/*`, `${dest}/`);
-
     copy(`${dest}/node_modules/${org}${build}-*/src/*`, prefix(config.build, dest));
+    copy(`${dest}/node_modules/${org}mjs/src/*`, prefix(config.scripts.src, dest));
+    copy(`${dest}/node_modules/${org}mjs/src/modules/*`, prefix(`${config.scripts.src}/modules/`, dest));
 
     createDir(prefix(config.styles.src, dest));
     createDir(prefix(config.scripts.src, dest));
