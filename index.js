@@ -82,6 +82,7 @@ function init(config, answers, repo, dest) {
     delete answers.build;
 
     let packages = [];
+    let mjs = false;
 
     packages.push(org + build);
 
@@ -91,6 +92,7 @@ function init(config, answers, repo, dest) {
         if (value == 'mjs') {
             packages.push(org + value);
             value = 'js';
+            mjs = true;
         }
 
         if (value) {
@@ -114,6 +116,10 @@ function init(config, answers, repo, dest) {
     }
 
     installPackages(packages, dest);
+
+    if (mjs) {
+       installPackages('modujs', dest, false);
+    }
 
     copy(`${dest}/node_modules/${org}${build}/src/*`, `${dest}/`);
     copy(`${dest}/node_modules/${org}${build}-*/src/*`, prefix(config.build, dest));
