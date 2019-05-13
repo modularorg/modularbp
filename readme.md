@@ -4,7 +4,7 @@
     </a>
 </p>
 <h1 align="center">modularBP</h1>
-<p align="center">A dead simple modular boilerplate.</p>
+<p align="center">Dead simple modular boilerplate.</p>
 
 ## Installation
 ```sh
