@@ -32,6 +32,7 @@ gulp
 | ------ | ----------- |
 | [modularbp-css] | CSS modules with [cssnext] and [PostCSS] |
 | [modularbp-sass] | SCSS modules with [Sass] |
+| [modularbp-less] | LESS modules with [Less] |
 
 ### Scripts
 | Module | Description |
@@ -94,6 +95,7 @@ You can create a `mconfig.json` file to change the default folders structure and
 [modularbp-gulp]: https://github.com/modularorg/modularbp-gulp
 [modularbp-css]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-css
 [modularbp-sass]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-sass
+[modularbp-less]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-less
 [modularbp-mjs]: https://github.com/modularorg/modularbp-mjs
 [modularbp-js]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-js
 [modularbp-hbs]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-hbs
@@ -102,6 +104,7 @@ You can create a `mconfig.json` file to change the default folders structure and
 [gulp]: https://github.com/gulpjs/gulp
 [cssnext]: https://github.com/MoOx/postcss-cssnext
 [Sass]: https://github.com/sass/libsass
+[Less]: https://github.com/less/less.js
 [PostCSS]: https://github.com/postcss/postcss
 [modularJS]: https://github.com/modularorg/modularjs
 [Babel]: https://github.com/babel/babel
