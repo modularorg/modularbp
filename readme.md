@@ -45,6 +45,7 @@ gulp
 | ------ | ----------- |
 | [modularbp-hbs] | HTML modules with [Handlebars] |
 | [modularbp-liquid] | HTML modules with [Liquid] |
+| [modularbp-swig] | HTML modules with [Swig] |
 
 ## Customization
 
@@ -100,6 +101,7 @@ You can create a `mconfig.json` file to change the default folders structure and
 [modularbp-js]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-js
 [modularbp-hbs]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-hbs
 [modularbp-liquid]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-liquid
+[modularbp-swig]: https://github.com/modularorg/modularbp-gulp/tree/master/modules/gulp-swig
 
 [gulp]: https://github.com/gulpjs/gulp
 [cssnext]: https://github.com/MoOx/postcss-cssnext
@@ -110,3 +112,4 @@ You can create a `mconfig.json` file to change the default folders structure and
 [Babel]: https://github.com/babel/babel
 [Handlebars]: https://github.com/wycats/handlebars.js
 [Liquid]: https://github.com/Shopify/liquid
+[Swig]: https://github.com/node-swig/swig-templates
